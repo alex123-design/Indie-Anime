@@ -1,0 +1,165 @@
+/* ====================================
+   Reset & Base Styles
+==================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ====================================
+   Welcome Container
+==================================== */
+.welcome-container {
+  width: 95%;
+  max-width: 320px;  /* Reduced overall container width */
+  background: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ====================================
+   Image Grid
+==================================== */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+/* For very small screens, use 2 columns */
+@media (max-width: 350px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ====================================
+   Image Styling & Animation
+==================================== */
+.image-grid img {
+  width: 100%;
+  /* Lowered the aspect ratio to make images shorter and less dominant */
+  aspect-ratio: 1 / 1.2;
+  object-fit: cover;
+  border-radius: 4px;
+  animation: moveUpDown 5s infinite ease-in-out;
+}
+
+/* Animation delays for each image */
+.image-grid img:nth-child(1) { animation-delay: 0s; }
+.image-grid img:nth-child(2) { animation-delay: 0.5s; }
+.image-grid img:nth-child(3) { animation-delay: 1s; }
+.image-grid img:nth-child(4) { animation-delay: 1.5s; }
+.image-grid img:nth-child(5) { animation-delay: 2s; }
+.image-grid img:nth-child(6) { animation-delay: 2.5s; }
+.image-grid img:nth-child(7) { animation-delay: 3s; }
+.image-grid img:nth-child(8) { animation-delay: 3.5s; }
+.image-grid img:nth-child(9) { animation-delay: 4s; }
+
+/* Keyframes for smooth up-and-down animation */
+@keyframes moveUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* ====================================
+   Text Section
+==================================== */
+.text-section {
+  text-align: center;
+  width: 100%;
+}
+
+.text-section h1 {
+  font-size: 1.6em;  /* Slightly reduced heading size */
+  margin: 6px 0;
+  /* Gradient text effect from purplish blue to light greenish blue */
+  background: linear-gradient(90deg, #8A2BE2, #00CED1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.text-section p {
+  color: #666;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+
+/* ====================================
+   Buttons
+==================================== */
+.buttons button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Next Button Styling */
+.buttons .next {
+  background-color: #333;
+  color: #fff;
+}
+
+.buttons .next:hover {
+  background: linear-gradient(90deg, #8A2BE2, #00CED1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px 3px rgba(138, 43, 226, 0.6),
+              0 0 15px 6px rgba(0, 206, 209, 0.6);
+}
+
+/* Register Button Styling */
+.buttons .register {
+  background-color: #d3d3d3;
+  color: #333;
+}
+
+.buttons .register:hover {
+  background: linear-gradient(90deg, #8A2BE2, #00CED1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px 3px rgba(138, 43, 226, 0.6),
+              0 0 15px 6px rgba(0, 206, 209, 0.6);
+}
+
+/* ====================================
+   Additional Mobile Adjustments
+==================================== */
+@media (max-width: 480px) {
+  .welcome-container {
+    max-width: 300px;
+    padding: 6px;
+  }
+  .text-section h1 {
+    font-size: 1.4em;
+    margin: 4px 0;
+  }
+  .text-section p {
+    font-size: 0.85em;
+    margin-bottom: 6px;
+  }
+  .buttons button {
+    padding: 8px;
+    font-size: 0.85em;
+    margin-bottom: 4px;
+  }
+}
